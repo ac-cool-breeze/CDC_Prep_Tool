@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+"""Creates random bank of questions for proctored tests.
+
+Usage:
+
+    python3 EOC_Prep.py,
+        or
+    double click EOC_Prep.py
+
+"""
+
 import random
 
 first_URE_file = r'C:\Users\alexc\Documents\Work\Training\3D1X1\Vol 1 URE.txt'
@@ -11,14 +22,53 @@ population = []
 
 
 def GrabQuestions(filepath):
+    """Grabs all of the questions and possible answers from text file. Puts them
+        into a list.
+
+     Args:
+        filepath: The path to the text file. .txt file has to be in a specific format:
+            ex:
+                1. What is a question?
+                a. a sentence
+                b. a statement
+                c. a poem
+                d. what?
+
+                2. What is a statement?
+                a. a sentence
+                b. a statement
+                c. a poem
+                d. what?
+
+     Returns:
+        A list of strings containing the questions and answers.
+    """
+    print('Grabbing questions...')
+
+    # Counting all the lines for iteration purposes.
     f = open(filepath, 'r', encoding="utf8")
     number_of_lines = len(f.readlines())
     f.close()
 
+    # Opening the file to read now
     f = open(filepath, 'r', encoding="utf8")
     x = 6
     question = []
 
+    # Assuming questions have 4 answers, we have 5 lines
+    #  Question
+    #   Answer
+    #   Answer
+    #   Answer
+    #   Answer
+    #       blank_line
+    # We loop through adding the entire question and its
+    #   4 potential answers to the QUESTION list
+    # 
+    # On the blank line we append the QUESTION list to 
+    #   the BANK_OF_QUESTIONS list.
+    #
+    # We do all of this until we have looped through it all
     while number_of_lines > 0:
         while x >= 0:
             if x == 5:
@@ -41,7 +91,27 @@ def GrabQuestions(filepath):
 
 
 def GrabAnswers(filepath):
+    """Grabs all of the answers and maps them to the questions order ( they should
+        be in that order anyhow.)
+
+        Function relies on the answers being in order, having a '.' to separate the answers
+        and each answer on it's own line.
+
+     Args:
+        filepath: The path to the text file. .txt file has to be in a specific format:
+            ex:
+                1. a
+                2. b
+                3. c
+
+     Returns:
+        A list of strings containing the answers.
+    """
     print('Grabbing answers...')
+
+    # This assumes 100 questions and just goes line
+    #   by line grabbing the string after the '.'
+    #   and appending it to BANK_OF_ANSWERS
     f = open(filepath, 'r')
     for x in range(100):
         answer = f.readline().split('.')
@@ -49,11 +119,13 @@ def GrabAnswers(filepath):
     f.close()
 
 
+# Need to move to __MAIN__
 GrabQuestions(first_URE_file)
 GrabQuestions(second_URE_file)
 GrabAnswers(first_URE_answer_file)
 GrabAnswers(second_URE_answer_file)
 
+# Need to put this in a function
 sampled_op = random.sample(range(200), 100)
 f = open('Practice_Test_Answers.txt', 'a')
 print('sampled_op: ' + str(sampled_op))
