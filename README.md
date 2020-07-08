@@ -6,14 +6,12 @@ Takes .txt files in the following forms, note the '.' separating the numbers and
 Questions:
 ----------------------------
 1. some question
-
 a. answer
 b. answer
 c. answer
 d. answer
 
 2. some question
-
 a. answer
 b. answer
 c. answer
