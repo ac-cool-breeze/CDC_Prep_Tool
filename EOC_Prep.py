@@ -152,7 +152,7 @@ def beginButtonClicked():
             Returns:
                 A list of strings containing the questions and answers.
             """
-            print('Grabbing questions...')
+            #print('Grabbing questions...')
 
             # Counting all the lines for iteration purposes.
             f = open(filepath, 'r', encoding="utf8")
@@ -216,7 +216,7 @@ def beginButtonClicked():
             Returns:
                 A list of strings containing the answers.
             """
-            print('Grabbing answers...')
+            #print('Grabbing answers...')
 
             # This assumes 100 questions and just goes line
             #   by line grabbing the string after the '.'
@@ -339,7 +339,7 @@ def beginButtonClicked():
 window = Tk()
 
 window.title('CDC Prep Tool - Greeting Screen')
-window.geometry("500x500+10+20")
+#window.geometry("500x500+10+20")
 
 title_label = Label(window, 
     text="CDC EOC Prep Tool", 
