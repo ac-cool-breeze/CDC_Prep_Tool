@@ -238,13 +238,24 @@ def beginButtonClicked():
         practice_test_answers_filename = save_directory + 'Practice_Test_Answers.txt'
         f = open(practice_test_answers_filename, 'a')
         #print('sampled_op: ' + str(sampled_op))
+        counter = 1
         for x in sampled_op:
             #print(bank_of_questions[x-1])
             #print(bank_of_answers[x-1])
-            for y in bank_of_questions[x-1]:
-                f.write(str(y))
-            new_line = 'Answer: ' + str(bank_of_answers[x-1]) + '\n'
-            f.write(new_line)
+            no = 5
+            while no >= 0:
+                for a_question in bank_of_questions[x-1]:
+                    if no == 5:
+                        no = no - 1
+                        z = a_question.split('.')
+                        new_line = str(counter) + ('.') + str(z[1])
+                        f.write(new_line)
+                        counter = counter + 1
+                    else:
+                        no = no - 1
+                        f.write(a_question)
+                new_line = 'Answer: ' + str(bank_of_answers[x-1]) + '\n'
+                f.write(new_line)
         f.close()
 
         counter = 1
