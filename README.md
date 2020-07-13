@@ -1,4 +1,4 @@
-# USAF_CDC_Prep_Tool
+# CDC_Prep_Tool
 Ingests UREs and Answers, creates random test with associating answers.
 
 Takes .txt files in the following forms, note the '.' separating the numbers and content:
