@@ -152,7 +152,7 @@ def beginButtonClicked():
             Returns:
                 A list of strings containing the questions and answers.
             """
-            #print('Grabbing questions...')
+            print('Grabbing questions...')
 
             # Counting all the lines for iteration purposes.
             f = open(filepath, 'r', encoding="utf8")
@@ -216,7 +216,7 @@ def beginButtonClicked():
             Returns:
                 A list of strings containing the answers.
             """
-            #print('Grabbing answers...')
+            print('Grabbing answers...')
 
             # This assumes 100 questions and just goes line
             #   by line grabbing the string after the '.'
@@ -359,5 +359,7 @@ begin_button=Button(window,
 title_label.grid( row=1, column=1)
 tool_label.grid( row=2, column=1)
 begin_button.grid( row=3, column=1)
+
+window.iconbitmap('./logo.ico')
 
 window.mainloop()
